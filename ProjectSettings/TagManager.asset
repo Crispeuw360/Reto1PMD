@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
+  - wall
+  - vine
   layers:
   - Default
   - TransparentFX
