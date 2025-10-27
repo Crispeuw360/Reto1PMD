@@ -10,6 +10,8 @@ public class MovimientoPJ : MonoBehaviour
     public bool grounded = false;
     private Vector2 input;
     private SpriteRenderer mySpriteRenderer;
+
+    public float regular_gravity=1;
     public float lowJumpMult = 2f;
     public float fallMult = 2.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +38,17 @@ public class MovimientoPJ : MonoBehaviour
         {
             // Nos da igual la velocidad vertical anterior, ahora queremos que vaya para arriba
             playerInput.y = 5f;
+        } else if (Input.GetButton("Jump") && grounded== false && myRigidbody.linearVelocity.y<0)
+        {
+            myRigidbody.gravityScale = regular_gravity - 0.8f;
+            if (myRigidbody.gravityScale < 0)
+            {
+                myRigidbody.gravityScale = 0;
+            }
+        }
+        else
+        {
+            myRigidbody.gravityScale = regular_gravity;
         }
         if ((Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow)) && climbing == true)
         {
