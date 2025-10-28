@@ -14,6 +14,8 @@ public class MovimientoPJ : MonoBehaviour
     public float regular_gravity=1;
     public float lowJumpMult = 2f;
     public float fallMult = 2.5f;
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,7 +46,8 @@ public class MovimientoPJ : MonoBehaviour
         {
             // Nos da igual la velocidad vertical anterior, ahora queremos que vaya para arriba
             playerInput.y = 5f;
-        } else if (Input.GetButton("Jump") && grounded== false && myRigidbody.linearVelocity.y<0)
+        }
+        else if (Input.GetButton("Jump") && grounded == false && myRigidbody.linearVelocity.y < 0)
         {
             myRigidbody.gravityScale = regular_gravity - 0.8f;
             if (myRigidbody.gravityScale < 0)
@@ -56,14 +59,16 @@ public class MovimientoPJ : MonoBehaviour
         {
             myRigidbody.gravityScale = regular_gravity;
         }
-        if ((Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow)) && climbing == true)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && climbing == true)
         {
             // Nos da igual la velocidad vertical anterior, ahora queremos que vaya para arriba
             playerInput.y = 5f;
-        }else if ((Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow)) && climbing == true)
+        }
+        else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && climbing == true)
         {
             playerInput.y = -5f;
-        }else if(climbing == true)
+        }
+        else if (climbing == true)
         {
             playerInput.y = 0;
         }
@@ -82,6 +87,22 @@ public class MovimientoPJ : MonoBehaviour
             mySpriteRenderer.flipX = true;
         }
     }
+    public void EnterNadar()
+{
+    
+    myRigidbody.gravityScale = 0.5f;
+    regular_gravity = 0.5f;
+   // _animator.SetTrigger("Climb");
+    UnityEngine.Debug.Log("Entro en una escalera");
+}
+
+public void ExitNadar()
+{
+    myRigidbody.gravityScale = 1f;
+    regular_gravity = 1f;
+   // _animator.SetTrigger("ExitClimb");
+    UnityEngine.Debug.Log("Salio de una escalera");
+}
 public void MoveStair()
 {
     climbing = true;
