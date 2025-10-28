@@ -9,13 +9,13 @@ public enum DireccionV { Arriba, Abajo }
 public class MovingPlatform : MonoBehaviour
 {
     // Es la velocidad a la que se moverá la plataforma en el eje horizontal.
-    public float VelocidadH = 0.3F;
+    public float VelocidadH = 0.0F;
 
     // Indica el sentido horizontal al que comenzará a moverse la plataforma.
     public DireccionH SentidoH = DireccionH.Derecha;
 
     // Es la velocidad a la que se moverá la plataforma en el eje vertical.
-    public float VelocidadV = 0.0F;
+    public float VelocidadV = 0.5F;
 
     // Indica el sentido vertical al que comenzará a moverse la plataforma.
     public DireccionV SentidoV = DireccionV.Arriba;

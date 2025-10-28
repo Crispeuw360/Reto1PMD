@@ -28,8 +28,14 @@ public class MovimientoPJ : MonoBehaviour
         Vector2 playerInput;
 
         // Recogemos el input del jugador
-        playerInput.x = Input.GetAxis("Horizontal") * 10f;
-
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerInput.x = Input.GetAxis("Horizontal") * 10f;
+        }
+        else
+        {
+            playerInput.x = Input.GetAxis("Horizontal") * 6f;
+        }
         // Recordamos la velocidad vertical del Rigidbody
         playerInput.y = myRigidbody.linearVelocity.y;
 
@@ -54,6 +60,12 @@ public class MovimientoPJ : MonoBehaviour
         {
             // Nos da igual la velocidad vertical anterior, ahora queremos que vaya para arriba
             playerInput.y = 5f;
+        }else if ((Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow)) && climbing == true)
+        {
+            playerInput.y = -5f;
+        }else if(climbing == true)
+        {
+            playerInput.y = 0;
         }
         // Asignamos los inputs recogidos al rigidbody
         myRigidbody.linearVelocity = playerInput;
@@ -70,25 +82,26 @@ public class MovimientoPJ : MonoBehaviour
             mySpriteRenderer.flipX = true;
         }
     }
-    void OnTriggerStay(Collision2D collision)
-    {
-        if (collision.collider.tag == "vine")
-        {
-            myRigidbody.gravityScale = 0;
-            climbing = true;
-        }
-    }
-    void OnTriggerExit(Collision2D collision)
-    {
-        if (collision.collider.tag == "vine")
-        {
-            myRigidbody.gravityScale = 1;
-            climbing = false;
-        }
-    }
+public void MoveStair()
+{
+    climbing = true;
+    myRigidbody.gravityScale = 0f;
+    regular_gravity = 0f;
+   // _animator.SetTrigger("Climb");
+    UnityEngine.Debug.Log("Entro en una escalera");
+}
+
+public void ExitStair()
+{
+    climbing = false;
+    myRigidbody.gravityScale = 1f;
+    regular_gravity = 1f;
+   // _animator.SetTrigger("ExitClimb");
+    UnityEngine.Debug.Log("Salio de una escalera");
+}
     void OnCollisionStay2D(Collision2D collision)
     {
-
+        
 
         if (collision.collider.tag == "Floor")
         {
