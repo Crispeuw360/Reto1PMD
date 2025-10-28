@@ -110,15 +110,4 @@ public class MovingPlatform : MonoBehaviour
         // Movemos la plataforma
         PlatformTransform.Translate(new Vector3(VelocidadH, VelocidadV, 0) * Time.deltaTime);
     }
-    void OnCollisionStay(Collider other)
-    {
-        // Incluímos como hijo de la plataforma a cualquier objeto que se pose sobre ella
-        other.transform.parent = transform;
-    }
-
-    void OnCollisionExit(Collider other)
-    {
-        // Excluímos como hijo de la plataforma a cualquier objeto que se separe de ella
-        other.transform.parent = null;
-    }
 }

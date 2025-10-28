@@ -101,11 +101,15 @@ public void ExitStair()
 }
     void OnCollisionStay2D(Collision2D collision)
     {
-        
+
 
         if (collision.collider.tag == "Floor")
         {
             grounded = true;
+        }
+        if (collision.collider.name == "MovingPlatform")
+        {
+            transform.SetParent(GameObject.Find("MovingPlatform").transform);
         }
     }
 
@@ -115,7 +119,12 @@ public void ExitStair()
         {
             grounded = false;
         }
+         if (collision.collider.name == "MovingPlatform")
+        {
+           transform.SetParent(null);
+        }
     }
+
 
 }
 /*
