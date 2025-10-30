@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoPJ : MonoBehaviour
 {
@@ -8,6 +10,12 @@ public class MovimientoPJ : MonoBehaviour
     private BoxCollider2D collision;
     public bool climbing = false;
     public bool grounded = false;
+    public bool canRun;
+    public bool canClimb;
+    public bool toxMask;
+    public bool canHit;
+    public bool shield;
+    public bool canFly;
     private Vector2 input;
     private SpriteRenderer mySpriteRenderer;
 
@@ -22,6 +30,33 @@ public class MovimientoPJ : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<BoxCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        UnityEngine.Debug.Log("SCENE IS:");
+        UnityEngine.Debug.Log(currentScene.name);
+        // Obtiene el nombre de la escena
+        string sceneName = currentScene.name;
+        toxMask = false;
+        shield = false;
+        if (sceneName == "Mundo1")
+        {
+            canRun = false;
+            canHit = false;
+            canFly = false;
+            canClimb = false;
+        }else{
+            canClimb = true;
+            canFly = true;
+            if (sceneName == "Mundo3")
+            {
+                canRun = true;
+                canHit = true;
+            }
+            else
+            {
+                canHit = false;
+                canRun = false;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +65,7 @@ public class MovimientoPJ : MonoBehaviour
         Vector2 playerInput;
 
         // Recogemos el input del jugador
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift)&& canRun)
         {
             playerInput.x = Input.GetAxis("Horizontal") * 10f;
         }
