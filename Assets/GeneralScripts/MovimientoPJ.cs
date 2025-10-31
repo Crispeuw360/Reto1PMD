@@ -84,10 +84,13 @@ public class MovimientoPJ : MonoBehaviour
         }
         else if (Input.GetButton("Jump") && grounded == false && myRigidbody.linearVelocity.y < 0)
         {
-            myRigidbody.gravityScale = regular_gravity - 0.8f;
-            if (myRigidbody.gravityScale < 0)
+            if (canFly)
             {
-                myRigidbody.gravityScale = 0;
+                myRigidbody.gravityScale = regular_gravity - 0.8f;
+                if (myRigidbody.gravityScale < 0)
+                {
+                    myRigidbody.gravityScale = 0;
+                }
             }
         }
         else

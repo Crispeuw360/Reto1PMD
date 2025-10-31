@@ -11,6 +11,9 @@ public class TradeCan : MonoBehaviour
             {
                 switch (gameObject.name)
                 {
+                    case "Tradecan1":
+                        collider2D.GetComponent<MovimientoPJ>().canClimb = true;
+                        break;
                     case "Tradecan2":
                         collider2D.GetComponent<MovimientoPJ>().canFly = true;
                         break;
