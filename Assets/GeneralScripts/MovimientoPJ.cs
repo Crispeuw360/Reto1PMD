@@ -168,7 +168,7 @@ public void ExitStair()
         }
         if (collision.collider.name == "MovingPlatform")
         {
-            transform.SetParent(GameObject.Find("MovingPlatform").transform);
+            transform.SetParent(collision.collider.transform);
         }
     }
 
@@ -186,84 +186,3 @@ public void ExitStair()
 
 
 }
-/*
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-public class MovimientoPJ : MonoBehaviour
-{
-    private Vector2 input;
-
-
-    private float movHorizontal = 0f;
-
-    [SerializeField] private float VelMov;
-
-    private Vector3 velocidad = Vector3.zero;
-
-    [SerializeField] private float fuerzaSalto;
-    private bool salto = false;
-    [SerializeField] private bool grounded = false;
-
-    [SerializeField] private float velEscal;
-    private BoxCollider2D collision;
-    private float gravedadInicial;
-   
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        myRigidbody = GetComponent<Rigidbody2D>();
-        collision = GetComponent<BoxCollider2D>();
-        gravedadInicial = myRigidbody.gravityScale;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-        input.y = Input.GetAxisRaw("Vertical");
-        input.x = Input.GetAxisRaw("Horizontal");
-
-        movHorizontal = input.x * VelMov;
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            salto = true;
-        }
-
-    }
-    private void FixedUpdate()
-    {
-        grounded = collision.tag == "Floor";
-        Mover(movHorizontal * Time.deltaTime, salto);
-        Escalar();
-
-
-        salto = false;
-    }
-    
-private void Mover(float mover, bool salto)
-    {
-        Vector3 velocidadObjetivo = new Vector2(mover, myRigidbody.linearVelocity.y);
-
-        if (grounded && salto)
-        {
-            myRigidbody.AddForce(new Vector2(0f, fuerzaSalto));
-        }
-    }
-
-private void Escalar()
-    {
-        if (input.y !=0 && _isClimbing)
-        {
-            Vector2 velocidadSubida = new Vector2(myRigidbody.linearVelocity.x, input.y * velEscal);
-            myRigidbody.linearVelocity = velocidadSubida;
-            
-        }
-
-        
-    }
-}
-*/

@@ -2,13 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-// Tipos enumerados para definir las direcciones
 
-public class MovingPlatform : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public enum DireccionH { Izquierda, Derecha }
 public enum DireccionV { Arriba, Abajo }
-
     // Es la velocidad a la que se moverá la plataforma en el eje horizontal.
     public float VelocidadH = 0.0F;
 

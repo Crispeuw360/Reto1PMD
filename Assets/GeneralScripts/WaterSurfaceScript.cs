@@ -11,6 +11,7 @@ public class WaterScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        tag = "wall";
         myEffector = GetComponent<PlatformEffector2D>();
         myEffector.surfaceArc = 0;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -22,10 +23,12 @@ public class WaterScript : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && player.GetComponent<MovimientoPJ>().canRun)
         {
             myEffector.surfaceArc = 180;
+            tag = "Floor";
         }
         else
         {
             myEffector.surfaceArc = 0;
+            tag = "wall";
         }
     }
 }

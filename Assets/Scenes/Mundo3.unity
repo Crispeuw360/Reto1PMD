@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 59266860}
   - component: {fileID: 59266863}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 655836383}
   - component: {fileID: 655836382}
   m_Layer: 0
-  m_Name: Ground (2)
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2174,7 +2174,7 @@ GameObject:
   - component: {fileID: 713870752}
   - component: {fileID: 713870753}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,12 +2548,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885822145}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.388, y: 3.9534, z: 0}
-  m_LocalScale: {x: 4.2159, y: 11.522559, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 42.163147, y: -13.40041, z: 0}
+  m_LocalScale: {x: 8.01133, y: 19.614027, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1983213629}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &885822147
 MonoBehaviour:
@@ -3834,7 +3834,7 @@ GameObject:
   - component: {fileID: 1622958758}
   - component: {fileID: 1622958757}
   m_Layer: 0
-  m_Name: MovingPlatform (1)
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4421,7 +4421,7 @@ GameObject:
   - component: {fileID: 1774591172}
   - component: {fileID: 1774591171}
   m_Layer: 0
-  m_Name: Ground (3)
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4727,7 +4727,7 @@ GameObject:
   - component: {fileID: 1921275517}
   - component: {fileID: 1921275518}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: MovingPlatform
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5105,8 +5105,7 @@ Transform:
   m_LocalPosition: {x: -0.38, y: -20.13, z: 0}
   m_LocalScale: {x: 1.9002656, y: 1.7022284, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 885822146}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1983213633
@@ -5337,4 +5336,5 @@ SceneRoots:
   - {fileID: 1371758247}
   - {fileID: 1691986788}
   - {fileID: 1316535771}
+  - {fileID: 885822146}
   - {fileID: 439963809}
