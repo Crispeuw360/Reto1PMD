@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-small-building-png-image_6241917_0: -4858017316489981040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
