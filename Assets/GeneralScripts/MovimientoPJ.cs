@@ -8,6 +8,7 @@ public class MovimientoPJ : MonoBehaviour
     [Range(1f, 20f)] public float speed = 10f;
     [Range(1f, 20f)] public float jumpForce = 8f; private Rigidbody2D myRigidbody;
     private BoxCollider2D collision;
+    public bool haskey;
     public bool climbing = false;
     public bool grounded = false;
     public bool canRun;
@@ -116,6 +117,7 @@ public class MovimientoPJ : MonoBehaviour
         {
             // Miramos hacia la izquierda
             mySpriteRenderer.flipX = false;
+            this.GetComponent<BoxCollider2D>().offset = new Vector2 (-0.8f,0.2f);
         }
 
         // Si vamos hacia la derecha
@@ -123,6 +125,7 @@ public class MovimientoPJ : MonoBehaviour
         {
             // Miramos hacia la derecha
             mySpriteRenderer.flipX = true;
+            this.GetComponent<BoxCollider2D>().offset = new Vector2 (0.8f,0.2f);
         }
     }
     public void EnterNadar()
