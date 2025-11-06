@@ -8,6 +8,7 @@ TagManager:
   - wall
   - vine
   - TradeCan
+  - door
   layers:
   - Default
   - TransparentFX

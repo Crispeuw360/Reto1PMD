@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using System;
+
 
 
 public class Enemy : MonoBehaviour
@@ -109,4 +109,6 @@ public enum DireccionV { Arriba, Abajo }
         // Movemos la plataforma
         PlatformTransform.Translate(new Vector3(VelocidadH, VelocidadV, 0) * Time.deltaTime);
     }
+
+
 }
