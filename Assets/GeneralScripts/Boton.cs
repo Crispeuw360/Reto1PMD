@@ -14,7 +14,7 @@ public class Boton : MonoBehaviour
             door.GetComponent<Door>().open = true;
 
             Color currcol = door.GetComponentInChildren<SpriteRenderer>().color;
-            currcol.a = 0f;
+            currcol.a = 0;
             door.GetComponentInChildren<SpriteRenderer>().color = currcol;
             UnityEngine.Debug.Log("acaba boton");
 

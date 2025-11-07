@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f82b8cf486a7dbf4e8575356f022313e
+guid: 674a92ff82402ba4fabd8f33780ccd5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7173807724784205352
-    second: brown-cliff-rock-formations-textures-600nw-2395442365_0
+      213: 2809284033691294490
+    second: cartel BioHazard_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brown-cliff-rock-formations-textures-600nw-2395442365_0
+      name: cartel BioHazard_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 600
-        height: 344
+        x: 40
+        y: 26
+        width: 280
+        height: 308
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82e37b20e1c7e8360800000000000000
-      internalID: 7173807724784205352
+      spriteID: a1b9855c1f49cf620800000000000000
+      internalID: 2809284033691294490
       vertices: []
       indices: 
       edges: []

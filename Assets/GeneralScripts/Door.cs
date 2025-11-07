@@ -15,6 +15,7 @@ public class Door : MonoBehaviour
         if (open)
         {
             this.GetComponent<PlatformEffector2D>().surfaceArc = 0;
+            
         }
     }
 }
