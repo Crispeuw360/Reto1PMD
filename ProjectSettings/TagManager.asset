@@ -9,6 +9,8 @@ TagManager:
   - vine
   - TradeCan
   - door
+  - EnemyW
+  - EnemyS
   layers:
   - Default
   - TransparentFX

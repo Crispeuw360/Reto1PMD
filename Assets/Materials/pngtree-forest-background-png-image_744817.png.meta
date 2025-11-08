@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-forest-background-png-image_744817_0: -750766477532914842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

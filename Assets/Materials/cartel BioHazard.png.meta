@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cartel BioHazard_0: 2809284033691294490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

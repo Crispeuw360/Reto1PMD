@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cartel flecha_0: -8941141591371261808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

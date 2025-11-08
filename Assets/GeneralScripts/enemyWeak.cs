@@ -14,6 +14,7 @@ public class enemyWeak : MonoBehaviour
         {
             if (collision.collider.GetComponent<MovimientoPJ>().canHit)
             {
+                collision.collider.GetComponent<MovimientoPJ>().EnemyHit();
                 if (sceneName == "Mundo2")
                 {
                     collision.collider.GetComponent<MovimientoPJ>().haskey = true;

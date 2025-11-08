@@ -8,7 +8,7 @@ public class MovimientoPJ : MonoBehaviour
     [Range(1f, 20f)] public float speed = 10f;
     [Range(1f, 20f)] public float jumpForce = 8f; private Rigidbody2D myRigidbody;
     private BoxCollider2D collision;
-    public bool haskey;
+    public bool haskey =false;
     public bool climbing = false;
     public bool grounded = false;
     public bool canRun;
@@ -20,6 +20,8 @@ public class MovimientoPJ : MonoBehaviour
     private Vector2 input;
     private SpriteRenderer mySpriteRenderer;
 
+    private Transform child;
+    private Animator animator;
     public float regular_gravity=1;
     public float lowJumpMult = 2f;
     public float fallMult = 2.5f;
@@ -30,7 +32,9 @@ public class MovimientoPJ : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<BoxCollider2D>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        child = transform.Find("Animacion");
+        animator = child.GetComponent<Animator>();
+        mySpriteRenderer = child.GetComponent<SpriteRenderer>();
         Scene currentScene = SceneManager.GetActiveScene();
         UnityEngine.Debug.Log("SCENE IS:");
         UnityEngine.Debug.Log(currentScene.name);
@@ -68,10 +72,12 @@ public class MovimientoPJ : MonoBehaviour
         // Recogemos el input del jugador
         if (Input.GetKey(KeyCode.LeftShift)&& canRun)
         {
+            animator.SetBool("IsRunning", true);
             playerInput.x = Input.GetAxis("Horizontal") * 10f;
         }
         else
         {
+            animator.SetBool("IsRunning", false);
             playerInput.x = Input.GetAxis("Horizontal") * 6f;
         }
         // Recordamos la velocidad vertical del Rigidbody
@@ -87,6 +93,7 @@ public class MovimientoPJ : MonoBehaviour
         {
             if (canFly)
             {
+                animator.SetBool("IsFlying", true);
                 myRigidbody.gravityScale = regular_gravity - 0.8f;
                 if (myRigidbody.gravityScale < 0)
                 {
@@ -96,6 +103,7 @@ public class MovimientoPJ : MonoBehaviour
         }
         else
         {
+            animator.SetBool("IsFlying", false);
             myRigidbody.gravityScale = regular_gravity;
         }
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && climbing == true)
@@ -113,19 +121,21 @@ public class MovimientoPJ : MonoBehaviour
         }
         // Asignamos los inputs recogidos al rigidbody
         myRigidbody.linearVelocity = playerInput;
-        if (playerInput.x < 0f)
+        if (playerInput.x < 0f) // Miramos hacia la dercha
         {
-            // Miramos hacia la izquierda
+            animator.SetBool("IsWalking", true);
             mySpriteRenderer.flipX = false;
             this.GetComponent<BoxCollider2D>().offset = new Vector2 (-0.8f,0.2f);
-        }
-
-        // Si vamos hacia la derecha
-        if (playerInput.x > 0f)
+        }else if (playerInput.x > 0f) // Si vamos hacia la izquierda
         {
-            // Miramos hacia la derecha
+
+            animator.SetBool("IsWalking", true);
             mySpriteRenderer.flipX = true;
             this.GetComponent<BoxCollider2D>().offset = new Vector2 (0.8f,0.2f);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
         }
     }
     public void EnterNadar()
@@ -134,7 +144,7 @@ public class MovimientoPJ : MonoBehaviour
     myRigidbody.gravityScale = 0.5f;
     regular_gravity = 0.5f;
    // _animator.SetTrigger("Climb");
-    UnityEngine.Debug.Log("Entro en una escalera");
+    UnityEngine.Debug.Log("Entro en agua");
 }
 
 public void ExitNadar()
@@ -142,32 +152,39 @@ public void ExitNadar()
     myRigidbody.gravityScale = 1f;
     regular_gravity = 1f;
    // _animator.SetTrigger("ExitClimb");
-    UnityEngine.Debug.Log("Salio de una escalera");
+    UnityEngine.Debug.Log("Salio del agua");
 }
 public void MoveStair()
 {
     climbing = true;
     myRigidbody.gravityScale = 0f;
     regular_gravity = 0f;
-   // _animator.SetTrigger("Climb");
+    animator.SetBool("IsClimbing", true);
     UnityEngine.Debug.Log("Entro en una escalera");
 }
 
-public void ExitStair()
-{
-    climbing = false;
-    myRigidbody.gravityScale = 1f;
-    regular_gravity = 1f;
-   // _animator.SetTrigger("ExitClimb");
-    UnityEngine.Debug.Log("Salio de una escalera");
-}
+    public void ExitStair()
+    {
+        climbing = false;
+        myRigidbody.gravityScale = 1f;
+        regular_gravity = 1f;
+        animator.SetBool("IsClimbing", false);
+        UnityEngine.Debug.Log("Salio de una escalera");
+    }
+    public void EnemyHit()
+    {
+        UnityEngine.Debug.Log("EnemyHit1");
+        
+    }
     void OnCollisionStay2D(Collision2D collision)
     {
 
 
         if (collision.collider.tag == "Floor")
         {
+            animator.SetBool("IsFlying", false);
             grounded = true;
+            
         }
         if (collision.collider.name == "MovingPlatform")
         {
@@ -179,6 +196,7 @@ public void ExitStair()
     {
         if (collision.collider.tag == "Floor")
         {
+            
             grounded = false;
         }
          if (collision.collider.name == "MovingPlatform")

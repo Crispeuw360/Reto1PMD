@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      textura-de-agua_87394-4085_0: 3499110248344890760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

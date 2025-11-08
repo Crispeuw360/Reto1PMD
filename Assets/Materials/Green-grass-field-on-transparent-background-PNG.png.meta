@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Green-grass-field-on-transparent-background-PNG_0: -4968165436622048127
+      Green-grass-field-on-transparent-background-PNG_1: 2166264133138323098
+      Green-grass-field-on-transparent-background-PNG_2: 3292797085467356256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
