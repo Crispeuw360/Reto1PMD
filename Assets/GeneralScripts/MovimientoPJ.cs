@@ -174,7 +174,9 @@ public void MoveStair()
     public void EnemyHit()
     {
         UnityEngine.Debug.Log("EnemyHit1");
+        animator.SetBool("OnHit", true);
         
+        animator.SetBool("OnHit", false);
     }
     void OnCollisionStay2D(Collision2D collision)
     {
