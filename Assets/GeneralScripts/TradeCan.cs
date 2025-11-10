@@ -3,36 +3,64 @@ using UnityEngine;
 public class TradeCan : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioClip Obtain;
     private void OnTriggerStay2D(Collider2D collider2D)
-{
-    if (collider2D.tag == "Player" )
+    {
+        if (collider2D.tag == "Player")
         {
+            MovimientoPJ player = collider2D.GetComponent<MovimientoPJ>();
             if (Input.GetKey(KeyCode.E))
             {
+
                 switch (gameObject.name)
                 {
                     case "Tradecan1":
-                        collider2D.GetComponent<MovimientoPJ>().canClimb = true;
+                        if (!player.canClimb)
+                        {
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                            player.canClimb = true;
+                        }
+
                         break;
                     case "Tradecan2":
-                        collider2D.GetComponent<MovimientoPJ>().canFly = true;
+                        if (!player.canFly)
+                        {
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                            player.canFly = true;
+                        }
                         break;
                     case "Tradecan3":
-                        collider2D.GetComponent<MovimientoPJ>().canRun = true;
+                        if (!player.canRun)
+                        {
+                            player.canRun = true;
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                        }
                         break;
                     case "Tradecan4":
-                        collider2D.GetComponent<MovimientoPJ>().canHit = true;
+                        if (!player.canHit)
+                        {
+                            player.canHit = true;
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                        }
                         break;
                     case "Tradecan5":
-                        collider2D.GetComponent<MovimientoPJ>().toxMask = true;
+                        if (!player.toxMask)
+                        {
+                            player.toxMask = true;
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                        }
                         break;
                     case "Tradecan6":
-                        collider2D.GetComponent<MovimientoPJ>().shield = true;
+                        if (!player.shield)
+                        {
+                            player.shield = true;
+                            SFXControl.instance.EjecutarSonido(Obtain);
+                        }
                         break;
                 }
-                
-                
+
+
             }
+        }
     }
-}
 }
