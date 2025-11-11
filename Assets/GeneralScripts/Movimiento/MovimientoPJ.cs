@@ -8,6 +8,7 @@ public class MovimientoPJ : MonoBehaviour
     [Range(1f, 20f)] public float speed = 10f;
     [Range(1f, 20f)] public float jumpForce = 8f; private Rigidbody2D myRigidbody;
     [SerializeField] private AudioClip climbSFX;
+    [SerializeField] private AudioClip flySFX;
     private BoxCollider2D collision;
     public bool haskey = false;
     public bool climbing = false;
@@ -96,11 +97,16 @@ public class MovimientoPJ : MonoBehaviour
         {
             if (canFly)
             {
-                animator.SetBool("IsFlying", true);
+                
                 myRigidbody.gravityScale = regular_gravity - 0.8f;
                 if (myRigidbody.gravityScale < 0)
                 {
                     myRigidbody.gravityScale = 0;
+                }
+                else
+                {
+                    animator.SetBool("IsFlying", true);
+                    SFXControl.instance.soundfly(flySFX);
                 }
             }
         }

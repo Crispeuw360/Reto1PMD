@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class enemyWeak : MonoBehaviour
 {
+    [SerializeField] private AudioClip OnHit;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,6 +20,7 @@ public class enemyWeak : MonoBehaviour
                 {
                     collision.collider.GetComponent<MovimientoPJ>().haskey = true;
                 }
+                SFXControl.instance.EjecutarSonido(OnHit);
                 GameObject padre = this.transform.parent.gameObject;
                 padre.SetActive(false);
 

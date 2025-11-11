@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 5d4a7cad06fa1544084f48337a4d9f86
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - basuraprefab: {fileID: 6463051894374774894, guid: e3e996753b547ae4d9d6d9858b71c542, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
