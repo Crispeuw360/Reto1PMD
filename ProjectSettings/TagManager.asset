@@ -12,6 +12,7 @@ TagManager:
   - EnemyW
   - EnemyS
   - Hud
+  - BrSkill
   layers:
   - Default
   - TransparentFX

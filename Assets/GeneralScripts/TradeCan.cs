@@ -6,9 +6,17 @@ public class TradeCan : MonoBehaviour
     [SerializeField] private AudioClip Obtain;
 
     private ControlPuntos controlador;
+    private GameObject control;
+
+    private UISkillUpdate brown;
+    private UISkillUpdate Blue;
     void Awake()
     {
-        controlador = GameObject.FindGameObjectWithTag("Hud").GetComponent<ControlPuntos>();
+        control = GameObject.FindGameObjectWithTag("Hud");
+        controlador = control.GetComponent<ControlPuntos>();
+
+        brown = GameObject.FindGameObjectWithTag("BrSkill").GetComponent<UISkillUpdate>();
+        Blue = control.GetComponentInChildren<UISkillUpdate>();
     }
     private void OnTriggerStay2D(Collider2D collider2D)
     {
@@ -23,6 +31,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan1":
                         if (!player.canClimb)
                         {
+                            brown.Unlock();
                             SFXControl.instance.EjecutarSonido(Obtain);
                             player.canClimb = true;
                         }
@@ -33,6 +42,7 @@ public class TradeCan : MonoBehaviour
                         {
                             if (controlador.puntuacion > 15)
                             {
+                                Blue.Unlock();
                                 controlador.IncrementarPuntuacion(-15);
                                 
                                 SFXControl.instance.EjecutarSonido(Obtain);
