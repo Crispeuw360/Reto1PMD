@@ -23,6 +23,14 @@ public class UISkillUpdate : MonoBehaviour
     }
     public void UseSkill()
     {
-        
+        image.sprite = UsingSprite;
+    }
+    public void unUseSkill()
+    {
+        image.sprite = ObtainedSprite;
+    }
+    public void SpendSkill()
+    {
+        image.sprite = BaseSprite;
     }
 }

@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBody : MonoBehaviour
 {
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnCollisionEnter2D(Collision2D collision)
     {
+        UISkillUpdate Yellow= GameObject.FindGameObjectWithTag("YSkill").GetComponent<UISkillUpdate>();
         if (collision.collider.tag == "Player")
         {
             MovimientoPJ Player = collision.collider.GetComponent<MovimientoPJ>();
@@ -14,7 +16,9 @@ public class EnemyBody : MonoBehaviour
                 Vector2 direction = transform.position - collision.transform.position;
                 direction.Normalize();
                 collision.collider.GetComponent<Rigidbody2D>().AddForce(direction * 20f, ForceMode2D.Impulse);
+                Yellow.UseSkill();
                 Player.shield = false;
+                Yellow.SpendSkill();
             }
             else
             {

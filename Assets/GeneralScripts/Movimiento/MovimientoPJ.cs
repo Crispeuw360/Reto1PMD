@@ -27,13 +27,18 @@ public class MovimientoPJ : MonoBehaviour
     public float regular_gravity = 1;
     public float lowJumpMult = 2f;
     public float fallMult = 2.5f;
-
+    private UISkillUpdate brown;
+    private UISkillUpdate Blue;
+    private UISkillUpdate orange;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<BoxCollider2D>();
+        brown = GameObject.FindGameObjectWithTag("BrSkill").GetComponent<UISkillUpdate>();
+        Blue = GameObject.FindGameObjectWithTag("BlSkill").GetComponent<UISkillUpdate>();
+        orange = GameObject.FindGameObjectWithTag("OSkill").GetComponent<UISkillUpdate>();
         child = transform.Find("Animacion");
         animator = child.GetComponent<Animator>();
         mySpriteRenderer = child.GetComponent<SpriteRenderer>();
@@ -76,11 +81,17 @@ public class MovimientoPJ : MonoBehaviour
         // Recogemos el input del jugador
         if (Input.GetKey(KeyCode.LeftShift) && canRun)
         {
+            orange.UseSkill();
             animator.SetBool("IsRunning", true);
             playerInput.x = Input.GetAxis("Horizontal") * 10f;
         }
         else
         {
+            if (canRun)
+            {
+                orange.unUseSkill();
+            }
+            
             animator.SetBool("IsRunning", false);
             playerInput.x = Input.GetAxis("Horizontal") * 6f;
         }
@@ -105,6 +116,7 @@ public class MovimientoPJ : MonoBehaviour
                 }
                 else
                 {
+                    Blue.UseSkill();
                     animator.SetBool("IsFlying", true);
                     SFXControl.instance.soundfly(flySFX);
                 }
@@ -112,6 +124,11 @@ public class MovimientoPJ : MonoBehaviour
         }
         else
         {
+            if (canFly)
+            {
+              Blue.unUseSkill();  
+            }
+            
             animator.SetBool("IsFlying", false);
             myRigidbody.gravityScale = regular_gravity;
         }
@@ -170,6 +187,7 @@ public class MovimientoPJ : MonoBehaviour
         SFXControl.instance.EjecutarSonido(climbSFX);
         myRigidbody.gravityScale = 0f;
         regular_gravity = 0f;
+        brown.UseSkill();
         animator.SetBool("IsClimbing", true);
         UnityEngine.Debug.Log("Entro en una escalera");
     }
@@ -180,6 +198,7 @@ public class MovimientoPJ : MonoBehaviour
         climbing = false;
         myRigidbody.gravityScale = 1f;
         regular_gravity = 1f;
+        brown.unUseSkill();
         animator.SetBool("IsClimbing", false);
         UnityEngine.Debug.Log("Salio de una escalera");
     }

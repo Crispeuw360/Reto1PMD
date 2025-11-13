@@ -13,6 +13,11 @@ TagManager:
   - EnemyS
   - Hud
   - BrSkill
+  - BlSkill
+  - OSkill
+  - GSkill
+  - RSkill
+  - YSkill
   layers:
   - Default
   - TransparentFX

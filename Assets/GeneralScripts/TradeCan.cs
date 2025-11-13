@@ -10,13 +10,21 @@ public class TradeCan : MonoBehaviour
 
     private UISkillUpdate brown;
     private UISkillUpdate Blue;
+    private UISkillUpdate orange;
+    private UISkillUpdate Green;
+    private UISkillUpdate Red;
+    private UISkillUpdate Yellow;
     void Awake()
     {
         control = GameObject.FindGameObjectWithTag("Hud");
         controlador = control.GetComponent<ControlPuntos>();
 
         brown = GameObject.FindGameObjectWithTag("BrSkill").GetComponent<UISkillUpdate>();
-        Blue = control.GetComponentInChildren<UISkillUpdate>();
+        Blue = GameObject.FindGameObjectWithTag("BlSkill").GetComponent<UISkillUpdate>();
+        orange = GameObject.FindGameObjectWithTag("OSkill").GetComponent<UISkillUpdate>();
+        Green = GameObject.FindGameObjectWithTag("GSkill").GetComponent<UISkillUpdate>();
+        Red = GameObject.FindGameObjectWithTag("RSkill").GetComponent<UISkillUpdate>();
+        Yellow = GameObject.FindGameObjectWithTag("YSkill").GetComponent<UISkillUpdate>();
     }
     private void OnTriggerStay2D(Collider2D collider2D)
     {
@@ -58,6 +66,7 @@ public class TradeCan : MonoBehaviour
                         {
                             if (controlador.puntuacion > 25)
                             {
+                                orange.Unlock();
                                 controlador.IncrementarPuntuacion(-25);
                                 player.canRun = true;
                                 SFXControl.instance.EjecutarSonido(Obtain);
@@ -72,6 +81,7 @@ public class TradeCan : MonoBehaviour
                         {
                              if (controlador.puntuacion > 10)
                             {
+                                Green.Unlock();
                                 controlador.IncrementarPuntuacion(-10);
                                 player.canHit = true;
                                 SFXControl.instance.EjecutarSonido(Obtain);
@@ -84,6 +94,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan5":
                         if (!player.toxMask)
                         {
+                            Red.Unlock();
                             player.toxMask = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
                         }
@@ -91,6 +102,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan6":
                         if (!player.shield)
                         {
+                            Yellow.Unlock();
                             player.shield = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
                         }
