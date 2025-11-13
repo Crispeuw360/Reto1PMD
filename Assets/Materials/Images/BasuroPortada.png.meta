@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 58b74ba084846784aad2d54dd4c5307f
+guid: 51b2d70295da74542b968a62a6166605
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7867830442496116486
-    second: Enemigo MK_U_0
-  - first:
-      213: -8830729380639777785
-    second: Enemigo MK_U_1
-  - first:
-      213: -7813376776993212323
-    second: Enemigo MK_U_2
-  - first:
-      213: -5569828371467737304
-    second: Enemigo MK_U_3
+      213: 3732422265771802883
+    second: BasuroPortada_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo MK_U_0
+      name: BasuroPortada_0
       rect:
         serializedVersion: 2
-        x: 154
-        y: 847
-        width: 953
-        height: 343
+        x: 0
+        y: 0
+        width: 600
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6074cf51a16203d60800000000000000
-      internalID: 7867830442496116486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo MK_U_1
-      rect:
-        serializedVersion: 2
-        x: 1279
-        y: 837
-        width: 733
-        height: 470
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70c5c5f5a62f27580800000000000000
-      internalID: -8830729380639777785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo MK_U_2
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 304
-        width: 863
-        height: 395
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d587807e73f419390800000000000000
-      internalID: -7813376776993212323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo MK_U_3
-      rect:
-        serializedVersion: 2
-        x: 1279
-        y: 282
-        width: 827
-        height: 387
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 827e5ca3b9ef3b2b0800000000000000
-      internalID: -5569828371467737304
+      spriteID: 3014617864a3cc330800000000000000
+      internalID: 3732422265771802883
       vertices: []
       indices: 
       edges: []
@@ -209,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BasuroPortada_0: 3732422265771802883
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -30,10 +30,12 @@ public class MovimientoPJ : MonoBehaviour
     private UISkillUpdate brown;
     private UISkillUpdate Blue;
     private UISkillUpdate orange;
+    private UISkillUpdate Green;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Green= GameObject.FindGameObjectWithTag("GSkill").GetComponent<UISkillUpdate>();
         myRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<BoxCollider2D>();
         brown = GameObject.FindGameObjectWithTag("BrSkill").GetComponent<UISkillUpdate>();
@@ -163,6 +165,10 @@ public class MovimientoPJ : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
+        }
+        if (canHit && grounded)
+        {
+            Green.unUseSkill();
         }
     }
     public void EnterNadar()

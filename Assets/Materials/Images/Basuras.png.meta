@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Basuras_0: -6244229838280385636
+      Basuras_1: 8590526967054837196
+      Basuras_10: -8132711386017649313
+      Basuras_11: -8984342991853517945
+      Basuras_2: -3208619395933706583
+      Basuras_3: 5997372005078158321
+      Basuras_4: 3374924763700113385
+      Basuras_5: -1647051485800061267
+      Basuras_6: -7264033984655143530
+      Basuras_7: 3874633950939518574
+      Basuras_8: 7465862973563522325
+      Basuras_9: 5829044130049938968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

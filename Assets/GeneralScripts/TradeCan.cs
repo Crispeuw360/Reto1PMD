@@ -48,7 +48,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan2":
                         if (!player.canFly)
                         {
-                            if (controlador.puntuacion > 15)
+                            if (controlador.puntuacion >= 15)
                             {
                                 Blue.Unlock();
                                 controlador.IncrementarPuntuacion(-15);
@@ -64,7 +64,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan3":
                         if (!player.canRun)
                         {
-                            if (controlador.puntuacion > 25)
+                            if (controlador.puntuacion >= 25)
                             {
                                 orange.Unlock();
                                 controlador.IncrementarPuntuacion(-25);
@@ -79,7 +79,7 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan4":
                         if (!player.canHit)
                         {
-                             if (controlador.puntuacion > 10)
+                             if (controlador.puntuacion >= 10)
                             {
                                 Green.Unlock();
                                 controlador.IncrementarPuntuacion(-10);
@@ -94,17 +94,31 @@ public class TradeCan : MonoBehaviour
                     case "Tradecan5":
                         if (!player.toxMask)
                         {
+                             if (controlador.puntuacion >= 30)
+                            {
                             Red.Unlock();
+                            controlador.IncrementarPuntuacion(-30);
                             player.toxMask = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
+                            }else
+                            {
+                                UnityEngine.Debug.Log("Necesitas recoger al menos 30 de basura");
+                            }
                         }
                         break;
                     case "Tradecan6":
                         if (!player.shield)
                         {
+                             if (controlador.puntuacion >= 5)
+                            {
                             Yellow.Unlock();
+                            controlador.IncrementarPuntuacion(-5);
                             player.shield = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
+                            }else
+                            {
+                                UnityEngine.Debug.Log("Necesitas recoger al menos 30 de basura");
+                            }
                         }
                         break;
                 }

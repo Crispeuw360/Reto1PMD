@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBody : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject GameOver;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,15 +15,16 @@ public class EnemyBody : MonoBehaviour
             {
                 Vector2 direction = transform.position - collision.transform.position;
                 direction.Normalize();
-                collision.collider.GetComponent<Rigidbody2D>().AddForce(direction * 20f, ForceMode2D.Impulse);
+                collision.collider.GetComponent<Rigidbody2D>().AddForce(direction * 40f, ForceMode2D.Impulse);
                 Yellow.UseSkill();
                 Player.shield = false;
                 Yellow.SpendSkill();
             }
             else
             {
-                SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-
+                GameOver.SetActive(true);
+                Time.timeScale = 0;
+                
             }
         }
 

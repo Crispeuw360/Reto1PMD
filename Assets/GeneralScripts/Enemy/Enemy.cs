@@ -6,7 +6,7 @@ using System;
 public class Enemy : MonoBehaviour
 {
     public enum DireccionH { Izquierda, Derecha }
-public enum DireccionV { Arriba, Abajo }
+    public enum DireccionV { Arriba, Abajo }
     // Es la velocidad a la que se moverá la plataforma en el eje horizontal.
     public float VelocidadH = 0.0F;
 
@@ -30,11 +30,19 @@ public enum DireccionV { Arriba, Abajo }
     private float ReferencePingPongHPosition;
     private float ReferencePingPongVPosition;
     private Vector3 InitialPlatformPosition;
-    
+
+    private Transform child;
+    private SpriteRenderer spriteRenderer;
+
+    private Vector3 posicion;
+
     void Start()
     {
         PlatformTransform = transform;
+        child = transform.Find("EnemyAnimation");
+        spriteRenderer = child.GetComponent<SpriteRenderer>();
 
+        posicion = transform.position;
         // Guardamos la posición inicial de la plataforma
         InitialPlatformPosition = PlatformTransform.position;
 
@@ -48,6 +56,7 @@ public enum DireccionV { Arriba, Abajo }
     // Update is called once per frame
     void Update()
     {
+        posicion = transform.position;
         // Calculamos la distancia horizontal recorrida desde el último rebote
         WalkedDistanceH = Math.Abs(PlatformTransform.position.x - ReferencePingPongHPosition);
 
@@ -89,11 +98,17 @@ public enum DireccionV { Arriba, Abajo }
         // Configuramos el sentido del movimiento horizontal
         if (SentidoH == DireccionH.Izquierda)
         {
+
             VelocidadH = -Math.Abs(VelocidadH);
+            spriteRenderer.flipX = true;
+            child.transform.position = new Vector3((posicion.x - 0.1f),(posicion.y - 0.3f),posicion.z);
         }
         else
         {
+
             VelocidadH = Math.Abs(VelocidadH);
+            spriteRenderer.flipX = false;
+            child.transform.position = new Vector3((posicion.x + 0.1f),(posicion.y - 0.3f),posicion.z);;
         }
 
         // Configuramos el sentido del movimiento vertical

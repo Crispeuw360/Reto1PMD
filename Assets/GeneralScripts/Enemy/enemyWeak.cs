@@ -8,6 +8,7 @@ public class enemyWeak : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        UISkillUpdate Green= GameObject.FindGameObjectWithTag("GSkill").GetComponent<UISkillUpdate>();
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
@@ -23,7 +24,7 @@ public class enemyWeak : MonoBehaviour
                 SFXControl.instance.EjecutarSonido(OnHit);
                 GameObject padre = this.transform.parent.gameObject;
                 padre.SetActive(false);
-
+                Green.UseSkill();
                 this.gameObject.SetActive(false);
             }
         }

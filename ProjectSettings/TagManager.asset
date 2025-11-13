@@ -18,6 +18,7 @@ TagManager:
   - GSkill
   - RSkill
   - YSkill
+  - GO
   layers:
   - Default
   - TransparentFX
