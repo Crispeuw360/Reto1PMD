@@ -1,10 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class TradeCan : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private AudioClip Obtain;
-
+    [SerializeField] private TextMeshProUGUI textcan;
     private ControlPuntos controlador;
     private GameObject control;
 
@@ -42,6 +43,7 @@ public class TradeCan : MonoBehaviour
                             brown.Unlock();
                             SFXControl.instance.EjecutarSonido(Obtain);
                             player.canClimb = true;
+                            textcan.text="You can now climb vines with [w]/[s] or [up]/[down]";
                         }
 
                         break;
@@ -55,9 +57,10 @@ public class TradeCan : MonoBehaviour
                                 
                                 SFXControl.instance.EjecutarSonido(Obtain);
                                 player.canFly = true;
+                                textcan.text="You can now glide while holding [Space]";
                             } else
                             {
-                                UnityEngine.Debug.Log("Necesitas recoger al menos 15 de basura");
+                                textcan.text="You need 15 trash";
                             }
                         }
                         break;
@@ -70,9 +73,10 @@ public class TradeCan : MonoBehaviour
                                 controlador.IncrementarPuntuacion(-25);
                                 player.canRun = true;
                                 SFXControl.instance.EjecutarSonido(Obtain);
+                                textcan.text="You can now run (and run on water) while holding [L shift]";
                             } else
                             {
-                                UnityEngine.Debug.Log("Necesitas recoger al menos 25 de basura");
+                                textcan.text="You need 25 trash";
                             }
                         }
                         break;
@@ -85,9 +89,10 @@ public class TradeCan : MonoBehaviour
                                 controlador.IncrementarPuntuacion(-10);
                                 player.canHit = true;
                                 SFXControl.instance.EjecutarSonido(Obtain);
+                                textcan.text="You can now dispose of enemies by jumping on them";
                             } else
                             {
-                                UnityEngine.Debug.Log("Necesitas recoger al menos 10 de basura");
+                                textcan.text="You need 10 trash";
                             }
                         }
                         break;
@@ -100,9 +105,10 @@ public class TradeCan : MonoBehaviour
                             controlador.IncrementarPuntuacion(-30);
                             player.toxMask = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
+                            textcan.text="You can now survive in toxic waste";
                             }else
                             {
-                                UnityEngine.Debug.Log("Necesitas recoger al menos 30 de basura");
+                                textcan.text="You need 30 trash";
                             }
                         }
                         break;
@@ -115,9 +121,10 @@ public class TradeCan : MonoBehaviour
                             controlador.IncrementarPuntuacion(-5);
                             player.shield = true;
                             SFXControl.instance.EjecutarSonido(Obtain);
+                            textcan.text="You can now survive one hit from enemies  (5 trash to regain shield)";
                             }else
                             {
-                                UnityEngine.Debug.Log("Necesitas recoger al menos 30 de basura");
+                                textcan.text="you need 5 trash";
                             }
                         }
                         break;
